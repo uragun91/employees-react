@@ -1,0 +1,7 @@
+.search-bar-wrapper {
+  display: flex;
+}
+
+.search-bar {
+  flex: 1;
+}

@@ -4,10 +4,14 @@ import './SearchBar.css';
 
 interface SearchBarProps {
   onSearchClick: (value: string) => void;
+  initialValue?: string;
 }
 
-export default function SearchBar({ onSearchClick }: SearchBarProps) {
-  const [text, setText] = useState('');
+export default function SearchBar({
+  onSearchClick,
+  initialValue = '',
+}: SearchBarProps) {
+  const [text, setText] = useState(initialValue);
 
   return (
     <div className="search-bar-wrapper">

@@ -6,13 +6,15 @@ import {
   ListItemAvatar,
   ListItemText,
 } from '@mui/material';
-import React, { useState } from 'react';
-import { users as usersList } from '../data';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { User } from '../models/user.model';
 
-export default function UsersList() {
-  const [users] = useState(usersList);
+interface UsersListProps {
+  users: User[];
+}
 
+export default function UsersList({ users = [] }: UsersListProps) {
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {users.map((user: User) => {
@@ -22,7 +24,10 @@ export default function UsersList() {
               <ListItemAvatar>
                 <Avatar alt={user.name} src="/static/images/avatar/1.jpg" />
               </ListItemAvatar>
-              <ListItemText primary={user.name} secondary={user.jobTitle} />
+
+              <Link to={`/user-details/${user.id}`}>
+                <ListItemText primary={user.name} secondary={user.jobTitle} />
+              </Link>
             </ListItem>
             <Divider variant="inset" component="li" />
           </React.Fragment>

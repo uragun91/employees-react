@@ -17,3 +17,7 @@ export function getEmployeeById(employeeId: number): Promise<User> {
       return response.data;
     });
 }
+
+export function createEmployee(employee: User): Promise<User> {
+  return http.post('/employees', employee);
+}

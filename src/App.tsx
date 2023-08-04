@@ -12,6 +12,7 @@ import {
   Typography,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { AddUser } from './pages/AddUser';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: '/user-details/:userId',
     element: <UserDetails />,
+  },
+  {
+    path: '/add-user',
+    element: <AddUser />,
   },
 ]);
 
@@ -46,10 +51,9 @@ function App() {
           </Toolbar>
         </AppBar>
       </Box>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </>
   );
-
 }
 
 export default App;

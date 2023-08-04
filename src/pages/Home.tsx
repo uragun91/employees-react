@@ -3,9 +3,10 @@ import { User } from '../models/user.model';
 import SearchBar from '../components/SearchBar';
 import UsersList from '../components/UsersList';
 import { getEmployees } from '../services/employees.service';
+import { Link } from 'react-router-dom';
 
 export function Home() {
-  const [searchValue, setSearchValue] = useState('ALEKSANDR');
+  const [searchValue, setSearchValue] = useState('');
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
@@ -20,16 +21,9 @@ export function Home() {
         initialValue={searchValue}
         onSearchClick={(searchBarValue: string) => {
           setSearchValue(searchBarValue);
-
-          // const newUsers: User[] = usersList.filter((user: User) =>
-          //   user.name
-          //     .toLowerCase()
-          //     .includes((searchBarValue ?? '').toLowerCase())
-          // );
-
-          // setUsers(newUsers);
         }}
       />
+      <Link to="/add-user">Add Employee</Link>
       <UsersList users={users} />
     </div>
   );

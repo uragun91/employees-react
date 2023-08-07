@@ -4,6 +4,7 @@ import SearchBar from '../components/SearchBar';
 import UsersList from '../components/UsersList';
 import { getEmployees } from '../services/employees.service';
 import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export function Home() {
   const [searchValue, setSearchValue] = useState('');
@@ -23,7 +24,13 @@ export function Home() {
           setSearchValue(searchBarValue);
         }}
       />
-      <Link to="/add-user">Add Employee</Link>
+
+      <Button size="small" component={Link} to="/add-user">
+        Add Employee
+      </Button>
+      <Button size="small" component={Link} to="/rewards">
+        Rewards
+      </Button>
       <UsersList users={users} />
     </div>
   );

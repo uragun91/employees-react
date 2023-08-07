@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { AddUser } from './pages/AddUser';
+import { BulkRewards } from './pages/BulkRewards';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: '/add-user',
     element: <AddUser />,
+  },
+  {
+    path: '/rewards',
+    element: <BulkRewards />,
   },
 ]);
 
